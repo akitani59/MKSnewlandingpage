@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKS Tools: Span Calculator & Roof Selector | Munkong Steel</title>
+    <meta name="description" content="คำนวณระยะแปหลังคาเมทัลชีท (Span) และเลือกสเปกหลังคาที่ใช่สำหรับโรงงานและบ้าน ด้วยเครื่องมือวิศวกรรมจาก MKS">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --mks-header-bg: #213268;
+            --mks-red: #C01515;
+            --footer-bg: #F5F5F5;
+            --text-dark: #333333;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+            --light-blue-bg: #f0f4ff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--mks-header-bg);
+            height: 85px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo img {
+            height: 55px;
+            background: #fff;
+            padding: 2px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .main-nav a {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 10px 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .main-nav a:hover { color: #ddd; }
+        .main-nav a.active { color: var(--mks-red); border-bottom: 2px solid var(--mks-red); }
+        .main-nav a i { font-size: 10px; margin-top: 2px;}
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-brochure {
+            background-color: var(--mks-red);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 1.2;
+            display: inline-block;
+        }
+
+        .btn-brochure:hover { background-color: #a01212; }
+        .search-icon { color: white; font-size: 18px; cursor: pointer; }
+
+        .hero {
+            background: linear-gradient(rgba(33, 50, 104, 0.85), rgba(33, 50, 104, 0.75)),
+                        url('https://static.wixstatic.com/media/b9ebc9_54dd25f620264d59896e6236eee208d2~mv2.png') no-repeat center center/cover;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { color: var(--mks-header-bg); font-size: 2.2rem; margin-bottom: 15px; }
+        .section-title p { color: #555; font-size: 1.15rem; max-width: 800px; margin: 0 auto; }
+
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .tool-card {
+            flex: 1;
+            min-width: 450px;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .tool-header {
+            background: var(--mks-header-bg);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tool-header h3 { font-size: 1.5rem; margin-bottom: 5px; }
+        .tool-header i { font-size: 2rem; margin-bottom: 10px; color: #fff; }
+
+        .tool-body { padding: 30px; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark); }
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: 'Sarabun', sans-serif;
+        }
+        .form-note { font-size: 0.85rem; color: #666; margin-top: 5px; font-style: italic; }
+
+        .btn-calc {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--mks-red);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-calc:hover { background-color: #a01212; }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: var(--light-blue-bg);
+            border-left: 5px solid var(--mks-header-bg);
+            border-radius: 4px;
+            display: none;
+        }
+        .result-title { font-weight: 700; color: var(--mks-header-bg); font-size: 1.1rem; margin-bottom: 10px; }
+        .result-value { font-size: 2rem; color: var(--mks-red); font-weight: 800; line-height: 1.2; }
+        .result-desc { font-size: 0.95rem; color: #444; margin-top: 10px; }
+
+        .engineering-note {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px dashed #ccc;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #666;
+            background: #fff;
+        }
+
+        .close-sale-section {
+            background: linear-gradient(rgba(192, 21, 21, 0.9), rgba(192, 21, 21, 0.9)),
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .close-sale-content h2 { font-size: 2rem; margin-bottom: 10px; font-weight: 500; }
+        .close-sale-content h3 { font-size: 1.5rem; margin-bottom: 40px; font-weight: 300; opacity: 0.95; }
+
+        .close-sale-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-consult {
+            background: white;
+            color: var(--mks-red);
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 4px;
+            min-width: 220px;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .btn-consult:hover { background: #f9f9f9; transform: translateY(-3px); }
+
+        footer {
+            background-color: var(--footer-bg);
+            border-top: 5px solid var(--mks-red);
+            padding-top: 40px;
+        }
+
+        .footer-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .social-group { display: flex; align-items: center; gap: 15px; }
+        .social-group h3 { color: var(--mks-header-bg); font-size: 1.6rem; margin-right: 10px; }
+        .s-icon {
+            width: 45px; height: 45px; background: var(--mks-header-bg); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+        }
+
+        .biz-hours { text-align: center; color: var(--mks-header-bg); }
+        .biz-hours h4 { font-size: 1.4rem; margin-bottom: 5px; }
+        .biz-hours p { color: #555; font-size: 0.95rem; }
+
+        .phone-contact { display: flex; align-items: center; gap: 15px; color: var(--mks-header-bg); font-size: 1.3rem; font-weight: 700; }
+        .phone-contact i { font-size: 2.5rem; }
+
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding-bottom: 50px;
+        }
+
+        .f-col h4 { color: var(--mks-header-bg); margin-bottom: 20px; font-size: 1.1rem; }
+        .f-col ul li { margin-bottom: 10px; font-size: 0.95rem; color: #444; position: relative; padding-left: 15px; }
+        .f-col ul li::before { content: "•"; color: var(--mks-header-bg); position: absolute; left: 0; font-weight: bold; }
+        .f-col ul li a:hover { color: var(--mks-red); }
+
+        .f-company img { width: 100px; border: 1px solid #ddd; padding: 5px; background: white; margin-bottom: 15px; }
+        .f-company p { font-size: 0.9rem; color: #555; margin-bottom: 10px; }
+
+        .footer-bottom {
+            background-color: var(--mks-header-bg);
+            color: white;
+            padding: 20px 0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        .fb-content { display: flex; justify-content: space-between; align-items: center; }
+        .fb-links a { margin-right: 20px; color: #ccc; }
+        .fb-links a:hover { color: white; }
+        .fb-copy img { height: 25px; vertical-align: middle; background: white; padding: 2px; margin-left: 10px; }
+
+        @media (max-width: 992px) {
+            .tools-container { flex-direction: column; align-items: center; }
+            .tool-card { width: 100%; min-width: auto; }
+            .header-inner { flex-wrap: wrap; }
+            .main-nav { display: none; }
+            .header-right { margin-left: auto; }
+        }
+        @media (max-width: 768px) {
+            .footer-top-row { flex-direction: column; text-align: center; }
+            .footer-links-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://munkongsteel.com/wp-content/uploads/2020/09/mks-logo-01-1.png" alt="MKS Logo">
+            </a>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="page2-anti-rust-acoustic.html">SOLUTIONS</a></li>
+                    <li><a href="page3-tools.html" class="active">TOOLS</a></li>
+                    <li><a href="page4-service.html">SERVICES</a></li>
+                    <li><a href="page5-engineering-guide.html">ENG. GUIDE</a></li>
+                    <li><a href="page6-awards.html">AWARDS</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <a href="#download" class="btn-brochure">
+                    (FREE) DOWNLOAD<br>BROCHURE
+                </a>
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badges">
+                <span class="badge"><i class="fa-solid fa-calculator"></i> Engineering Tools</span>
+                <span class="badge"><i class="fa-solid fa-file-shield"></i> Safety First</span>
+            </div>
+            <h1>เครื่องมือคำนวณและเลือกหลังคา MKS</h1>
+            <p>ช่วยวิศวกรและเจ้าของโครงการ เลือกสเปกหลังคาที่ปลอดภัยและคุ้มค่าที่สุด <br>
+               คำนวณระยะแป (Span) และแนะนำรุ่นที่เหมาะสมตามมาตรฐานวิศวกรรม</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>โปรแกรมคำนวณและแนะนำสินค้า (Interactive Tools)</h2>
+                <p>ใช้งานง่าย แม่นยำ อ้างอิงจาก Load Table มาตรฐาน MKS Catalog V.2025</p>
+            </div>
+
+            <div class="tools-container">
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <i class="fa-solid fa-ruler-combined"></i>
+                        <h3>1. คำนวณระยะแป (Span Calculator)</h3>
+                        <p style="font-size:0.9rem; opacity:0.9;">หาความกว้างของแปที่ปลอดภัย เพื่อประหยัดโครงสร้าง</p>
+                    </div>
+                    <div class="tool-body">
+                        <div class="form-group">
+                            <label class="form-label">เลือกรุ่นหลังคา (Roof Profile)</label>
+                            <select id="spanProfile" class="form-select">
+                                <option value="760">MKS 760 (ระบบยิงสกรู - ยอดนิยม)</option>
+                                <option value="700BL">MKS 700BL (ระบบ Boltless - โรงงาน)</option>
+                                <option value="720BL">MKS 720BL (ระบบ Boltless - รับแรงสูง)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">ความหนาเหล็ก (BMT Thickness)</label>
+                            <select id="spanThickness" class="form-select">
+                                <option value="0.35">0.35 mm (มาตรฐานทั่วไป)</option>
+                                <option value="0.40">0.40 mm (โรงงานมาตรฐาน)</option>
+                                <option value="0.42">0.42 mm (โรงงานขนาดกลาง)</option>
+                                <option value="0.48">0.48 mm (โรงงานขนาดใหญ่/FM)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">ตำแหน่งระยะแป (Span Type)</label>
+                            <select id="spanType" class="form-select">
+                                <option value="internal">ระยะแปกลาง (Internal Span)</option>
+                                <option value="end">ระยะแปริม (End Span) - รับแรงลมสูงกว่า</option>
+                            </select>
+                            <div class="form-note">*ระยะแปริมต้องถี่กว่าระยะแปกลางประมาณ 20%</div>
+                        </div>
+
+                        <button onclick="calculateSpan()" class="btn-calc">คำนวณระยะแปที่แนะนำ</button>
+
+                        <div id="spanResult" class="result-box">
+                            <div class="result-title"><i class="fa-solid fa-check-circle"></i> ผลการคำนวณ (Recommended Span)</div>
+                            <div class="result-value" id="spanValue">1.20 m.</div>
+                            <div class="result-desc" id="spanDesc">เหมาะสำหรับโครงสร้างทั่วไป</div>
+                        </div>
+
+                        <div class="engineering-note">
+                            <i class="fa-solid fa-circle-exclamation"></i> <strong>หมายเหตุวิศวกรรม:</strong>
+                            ค่าที่ได้เป็นค่าประมาณการเบื้องต้นสำหรับแรงลมปกติ การก่อสร้างจริงควรได้รับการคำนวณจากวิศวกรโครงสร้าง (Structural Engineer) ตามสภาพหน้างานจริง
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <i class="fa-solid fa-magnifying-glass-location"></i>
+                        <h3>2. ระบบช่วยเลือกหลังคา (Roof Selector)</h3>
+                        <p style="font-size:0.9rem; opacity:0.9;">ค้นหารุ่นหลังคาและฉนวนที่ตอบโจทย์โครงการคุณ</p>
+                    </div>
+                    <div class="tool-body">
+                        <div class="form-group">
+                            <label class="form-label">ประเภทอาคาร (Building Type)</label>
+                            <select id="selType" class="form-select">
+                                <option value="factory">โรงงาน / โกดัง (Factory/Warehouse)</option>
+                                <option value="house">บ้านพักอาศัย / อาคารพาณิชย์</option>
+                                <option value="canopy">โรงจอดรถ / กันสาด</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">สถานที่ตั้ง (Location Environment)</label>
+                            <select id="selLoc" class="form-select">
+                                <option value="general">ทั่วไป (General)</option>
+                                <option value="coastal">ติดทะเล / เขต EEC (Coastal/Corrosive)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">ความต้องการพิเศษ (Special Requirement)</label>
+                            <select id="selReq" class="form-select">
+                                <option value="none">เน้นประหยัดงบประมาณ (Budget)</option>
+                                <option value="leak">ป้องกันน้ำรั่วซึม 100% (Anti-Leak)</option>
+                                <option value="heat">กันร้อน / กันเสียงสูงสุด (Heat/Sound)</option>
+                            </select>
+                        </div>
+
+                        <button onclick="selectRoof()" class="btn-calc" style="background-color: #f59e0b; color: #000;">ค้นหาหลังคาที่ใช่</button>
+
+                        <div id="selectorResult" class="result-box" style="border-left-color: #f59e0b;">
+                            <div class="result-title" style="color: #333;"><i class="fa-solid fa-star"></i> รุ่นที่แนะนำ (Recommended Model)</div>
+                            <div class="result-value" id="recModel" style="color: #213268; font-size: 1.5rem;">MKS 760SP</div>
+                            <div class="result-desc" id="recDetail">
+                                <strong>Option:</strong> <span id="recOption">Standard PU 25mm</span><br>
+                                <span id="recReason" style="font-size:0.9rem; display:block; margin-top:5px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="close-sale-section">
+        <div class="container close-sale-content">
+            <h2>ต้องการใบเสนอราคา หรือปรึกษาวิศวกร?</h2>
+            <h3>ทีมงาน MKS พร้อมให้บริการข้อมูลเชิงลึกและประเมินราคาฟรี</h3>
+
+            <div class="close-sale-buttons">
+                <a href="#" class="btn-consult">ขอใบเสนอราคา</a>
+                <a href="#" class="btn-consult">ติดต่อวิศวกรโครงการ</a>
+                <a href="#" class="btn-consult">Download Datasheet</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top-row">
+                <div class="social-group">
+                    <h3>Get social</h3>
+                    <a href="#" class="s-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="s-icon"><i class="fa-brands fa-line"></i></a>
+                    <a href="#" class="s-icon"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+
+                <div class="biz-hours">
+                    <h4>Business Hours</h4>
+                    <p>Open Day : Monday - Saturday : 8.00 am. to 5.00 pm.</p>
+                </div>
+
+                <div class="phone-contact">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>(02)721-6521-9 098-2721979</span>
+                </div>
+            </div>
+
+            <div class="footer-links-grid">
+                <div class="f-col">
+                    <h4>เกี่ยวกับเรา</h4>
+                    <ul>
+                        <li><a href="#">วิสัยทัศน์/ พันธกิจ/ ค่านิยม</a></li>
+                        <li><a href="#">ข้อมูลทั่วไป</a></li>
+                    </ul>
+                    <h4 style="margin-top:20px;">ผลิตภัณฑ์/บริการ</h4>
+                    <ul>
+                        <li><a href="#">Metal Sheet Roof</a></li>
+                        <li><a href="#">PU Roof</a></li>
+                        <li><a href="#">Insulated Metal Panel</a></li>
+                        <li><a href="#">PURLIN</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-col">
+                    <h4>นักลงทุนสัมพันธ์</h4>
+                    <ul>
+                        <li><a href="#">ลักษณะการประกอบธุรกิจ</a></li>
+                        <li><a href="#">โครงสร้างกลุ่มธุรกิจ</a></li>
+                        <li><a href="#">สารจากประธานกรรมการ</a></li>
+                        <li><a href="#">ผังโครงสร้างองค์กร</a></li>
+                        <li><a href="#">คณะกรรมการบริษัท</a></li>
+                        <li><a href="#">มาตรฐาน และรางวัลคุณภาพ</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-col">
+                    <h4>ผลงานของเรา</h4>
+                    <ul><li><a href="#">ข่าวสารกิจกรรม</a></li></ul>
+                    <h4 style="margin-top:20px;">ติดต่อเรา</h4>
+                </div>
+
+                <div class="f-col f-company">
+                    <img src="https://munkongsteel.com/wp-content/uploads/2020/09/mks-logo-01-1.png" alt="MKS Logo">
+                    <p><strong>บริษัท มั่นคง สตีล จำกัด (มหาชน) ( MKS )</strong></p>
+                    <p>MUNKONG STEEL public limited companies (PLCs)</p>
+                    <p>BKK office : 1/348 Soi Onnuch 59/1, Sukhumvit 77 Rd.,Prawet, Bangkok 10250</p>
+                    <p>EMAIL US : contact@munkongsteel.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container fb-content">
+                <div class="fb-links">
+                    <a href="index.html">Home</a>
+                    <a href="page2-anti-rust-acoustic.html">Solutions</a>
+                    <a href="page4-service.html">Services</a>
+                    <a href="page6-awards.html">Awards</a>
+                </div>
+                <div class="fb-copy">
+                    COPY RIGHT 2025 @MUNKONG STEEL
+                    <img src="https://munkongsteel.com/wp-content/uploads/2020/09/mks-logo-01-1.png" alt="MKS Small Logo">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculateSpan() {
+            const profile = document.getElementById('spanProfile').value;
+            const thickness = parseFloat(document.getElementById('spanThickness').value);
+            const type = document.getElementById('spanType').value;
+
+            let baseSpan = 0;
+
+            if (profile === '760') {
+                if (thickness <= 0.35) baseSpan = 1.20;
+                else if (thickness <= 0.40) baseSpan = 1.30;
+                else if (thickness <= 0.42) baseSpan = 1.40;
+                else baseSpan = 1.50;
+            }
+            else if (profile === '700BL') {
+                if (thickness <= 0.35) baseSpan = 1.30;
+                else if (thickness <= 0.40) baseSpan = 1.50;
+                else if (thickness <= 0.42) baseSpan = 1.70;
+                else baseSpan = 1.90;
+            }
+            else {
+                if (thickness <= 0.40) baseSpan = 1.60;
+                else if (thickness <= 0.42) baseSpan = 1.80;
+                else baseSpan = 2.00;
+            }
+
+            if (type === 'end') {
+                baseSpan = baseSpan * 0.8;
+            }
+
+            const resultBox = document.getElementById('spanResult');
+            resultBox.style.display = 'block';
+            document.getElementById('spanValue').innerText = baseSpan.toFixed(2) + " เมตร";
+
+            let descText = "";
+            if (type === 'end') descText = "ระยะแปริมอาคาร (รับแรงลมปะทะสูง)";
+            else descText = "ระยะแปช่วงกลางอาคาร (แรงลมปกติ)";
+            document.getElementById('spanDesc').innerText = descText;
+        }
+
+        function selectRoof() {
+            const type = document.getElementById('selType').value;
+            const loc = document.getElementById('selLoc').value;
+            const req = document.getElementById('selReq').value;
+
+            let model = "";
+            let option = "";
+            let reason = "";
+
+            if (loc === 'coastal') {
+                model = "MKS 700BL (Boltless)";
+                option = "PVDF Coating + PIR Insulation";
+                reason = "พื้นที่ติดทะเลต้องใช้สี PVDF กันสนิม และระบบ Boltless ลดจุดเจาะสกรูเพื่อป้องกันสนิมกินหัวน็อต";
+            } else if (req === 'leak' || type === 'factory') {
+                model = "MKS 700BL / 720BL (Boltless)";
+                option = "Standard Paint + PE/PU Foam";
+                reason = "โรงงานต้องการการป้องกันน้ำรั่วซึมสูงสุด แนะนำระบบ Boltless (คลิปล็อค) มั่นใจ 100%";
+            } else if (req === 'heat') {
+                model = "MKS 760SS + PIR";
+                option = "PIR Insulation 50mm";
+                reason = "เน้นกันร้อน/กันเสียง ต้องใช้ฉนวน PIR ความหนาแน่นสูง 40kg/m3";
+            } else if (type === 'canopy' || req === 'none') {
+                model = "MKS 760SP (Bolt System)";
+                option = "Standard Paint (0.35-0.40mm)";
+                reason = "รุ่นประหยัดยอดนิยม ติดตั้งง่าย เหมาะสำหรับอาคารทั่วไปหรือกันสาด";
+            } else {
+                model = "MKS 760SP (Bolt System)";
+                option = "PU Foam 25mm";
+                reason = "รุ่นมาตรฐาน ตอบโจทย์การใช้งานทั่วไป คุ้มค่าราคา";
+            }
+
+            const resultBox = document.getElementById('selectorResult');
+            resultBox.style.display = 'block';
+            document.getElementById('recModel').innerText = model;
+            document.getElementById('recOption').innerText = option;
+            document.getElementById('recReason').innerText = reason;
+        }
+    </script>
+
+</body>
+</html>

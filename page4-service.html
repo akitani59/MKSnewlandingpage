@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKS Roofing Service: Installation & Renovation | บริการติดตั้งและซ่อมแซมหลังคา</title>
+    <meta name="description" content="บริการรับติดตั้ง รื้อถอน และซ่อมแซมหลังคาโรงงานครบวงจร แก้ปัญหาหลังคารั่วซึม โดยทีมช่างมืออาชีพและวิศวกร MKS ประสบการณ์กว่า 30 ปี">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --mks-header-bg: #213268;
+            --mks-red: #C01515;
+            --footer-bg: #F5F5F5;
+            --text-dark: #333333;
+            --white: #ffffff;
+            --bg-light: #f9fafb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Sarabun', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        header { background-color: var(--mks-header-bg); height: 85px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+        .logo img { height: 55px; background: #fff; padding: 2px; }
+
+        .main-nav ul { display: flex; gap: 20px; align-items: center; }
+        .main-nav a { color: var(--white); font-size: 14px; font-weight: 600; text-transform: uppercase; padding: 10px 5px; }
+        .main-nav a:hover { color: #ddd; }
+        .main-nav a.active { color: var(--mks-red); border-bottom: 2px solid var(--mks-red); }
+
+        .header-right { display: flex; align-items: center; gap: 20px; }
+        .btn-brochure { background-color: var(--mks-red); color: white; padding: 8px 15px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 12px; display: inline-block; text-align: center; }
+        .btn-brochure:hover { background-color: #a01212; }
+
+        .hero {
+            background: linear-gradient(rgba(33, 50, 104, 0.8), rgba(33, 50, 104, 0.7)),
+                        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; }
+        .hero p { font-size: 1.4rem; max-width: 800px; margin: 0 auto 30px; font-weight: 300; }
+        .btn-hero { background: var(--mks-red); color: white; padding: 12px 30px; font-size: 1.1rem; border-radius: 5px; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-block; }
+        .btn-hero:hover { background: #a01212; }
+
+        .section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { color: var(--mks-header-bg); font-size: 2.2rem; }
+        .section-title p { color: #555; font-size: 1.1rem; margin-top: 10px; }
+
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .service-card:hover { transform: translateY(-5px); border-color: var(--mks-header-bg); }
+        .service-icon { font-size: 3rem; color: var(--mks-red); margin-bottom: 20px; }
+        .service-card h3 { font-size: 1.4rem; color: var(--mks-header-bg); margin-bottom: 10px; }
+
+        .process-section { background-color: var(--bg-light); }
+        .process-steps { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .step-item { flex: 1; min-width: 200px; text-align: center; position: relative; }
+        .step-num { width: 50px; height: 50px; background: var(--mks-header-bg); color: white; border-radius: 50%; font-size: 1.5rem; font-weight: 700; line-height: 50px; margin: 0 auto 15px; }
+        .step-title { font-weight: 700; color: #333; margin-bottom: 5px; }
+
+        .cta-section { background: var(--mks-header-bg); color: white; text-align: center; padding: 60px 0; }
+        .cta-section h2 { margin-bottom: 20px; font-size: 2rem; }
+        .cta-section p { font-size: 1.2rem; margin-bottom: 30px; }
+        .btn-cta { background: white; color: var(--mks-header-bg); padding: 15px 30px; text-decoration: none; font-weight: 700; border-radius: 5px; font-size: 1.2rem; display: inline-block; }
+        .btn-cta:hover { background: #f0f0f0; }
+
+        footer { background-color: var(--footer-bg); border-top: 5px solid var(--mks-red); padding-top: 40px; margin-top: 0; }
+
+        .footer-top-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding-bottom: 30px; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
+        .social-group { display: flex; align-items: center; gap: 15px; }
+        .social-group h3 { color: var(--mks-header-bg); font-size: 1.6rem; margin-right: 10px; }
+        .s-icon { width: 45px; height: 45px; background: var(--mks-header-bg); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+        .biz-hours { text-align: center; color: var(--mks-header-bg); }
+        .biz-hours h4 { font-size: 1.4rem; margin-bottom: 5px; }
+        .biz-hours p { color: #555; font-size: 0.95rem; }
+        .phone-contact { display: flex; align-items: center; gap: 15px; color: var(--mks-header-bg); font-size: 1.3rem; font-weight: 700; }
+        .phone-contact i { font-size: 2.5rem; }
+
+        .footer-links-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; padding-bottom: 50px; }
+        .f-col h4 { color: var(--mks-header-bg); margin-bottom: 20px; font-size: 1.1rem; }
+        .f-col ul li { margin-bottom: 10px; font-size: 0.95rem; color: #444; position: relative; padding-left: 15px; }
+        .f-col ul li::before { content: "•"; color: var(--mks-header-bg); position: absolute; left: 0; font-weight: bold; }
+        .f-col ul li a:hover { color: var(--mks-red); }
+        .f-company img { width: 100px; border: 1px solid #ddd; padding: 5px; background: white; margin-bottom: 15px; }
+        .f-company p { font-size: 0.9rem; color: #555; margin-bottom: 10px; }
+
+        .footer-bottom { background: var(--mks-header-bg); color: white; padding: 20px 0; font-size: 0.85rem; text-transform: uppercase; }
+        .fb-content { display: flex; justify-content: space-between; align-items: center; }
+        .fb-links a { margin-right: 20px; color: #ccc; }
+        .fb-links a:hover { color: white; }
+        .fb-copy img { height: 25px; vertical-align: middle; background: white; padding: 2px; margin-left: 10px; }
+
+        @media (max-width: 992px) {
+            .header-inner { flex-wrap: wrap; }
+            .main-nav { display: none; }
+            .header-right { margin-left: auto; }
+            .footer-links-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .footer-top-row { flex-direction: column; text-align: center; }
+            .footer-links-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .process-steps { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo"><img src="https://munkongsteel.com/wp-content/uploads/2020/09/mks-logo-01-1.png" alt="MKS Logo"></a>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="page2-anti-rust-acoustic.html">SOLUTIONS</a></li>
+                    <li><a href="page3-tools.html">TOOLS</a></li>
+                    <li><a href="page4-service.html" class="active">SERVICES</a></li>
+                    <li><a href="page5-engineering-guide.html">ENG. GUIDE</a></li>
+                    <li><a href="page6-awards.html">AWARDS</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <a href="#contact" class="btn-brochure">ติดต่อเรา</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>บริการติดตั้งและซ่อมแซมหลังคาครบวงจร</h1>
+            <p>จบปัญหาหลังคารั่วซึม รื้อถอน-มุงใหม่ ด้วยทีมงานมืออาชีพและวิศวกร MKS ควบคุมงานทุกขั้นตอน รับประกันผลงาน</p>
+            <a href="#contact" class="btn-hero"><i class="fa-solid fa-clipboard-check"></i> นัดสำรวจหน้างานฟรี</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>บริการของเรา (Our Services)</h2>
+                <p>โซลูชั่นงานหลังคาสำหรับโรงงานและคลังสินค้า โดยเฉพาะ</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3>ติดตั้งหลังคาใหม่ (New Installation)</h3>
+                    <p>บริการมุงหลังคาเมทัลชีทสำหรับโรงงานสร้างใหม่ ด้วยระบบ Bolt หรือ Boltless พร้อมติดตั้งฉนวนกันความร้อน</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-house-chimney-crack"></i></div>
+                    <h3>รื้อ-เปลี่ยนหลังคา (Re-Roofing)</h3>
+                    <p>รื้อหลังคาเก่าที่ผุพัง เปลี่ยนใหม่ด้วยเมทัลชีทเกรดพรีเมียม แก้ปัญหารั่วซึมถาวร ไม่กระทบไลน์การผลิต</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>ซ่อมแซมทับหลังคาเดิม (Roof Overlay)</h3>
+                    <p>ติดตั้งหลังคาใหม่ทับหลังคาเดิม (Double Roof) เพื่อลดความร้อนและป้องกันการรั่วซึม โดยไม่ต้องรื้อถอน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>ขั้นตอนการทำงานมาตรฐาน MKS</h2>
+            </div>
+            <div class="process-steps">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <div class="step-title">สำรวจหน้างาน</div>
+                    <p>ทีมวิศวกรเข้าประเมินพื้นที่และปัญหาจริง</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <div class="step-title">เสนอแผนงาน</div>
+                    <p>เลือกวัสดุที่เหมาะสมและทำใบเสนอราคา</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <div class="step-title">ดำเนินการติดตั้ง</div>
+                    <p>ควบคุมงานโดยโฟร์แมนและวิศวกร</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">4</div>
+                    <div class="step-title">ส่งมอบงาน</div>
+                    <p>ตรวจสอบคุณภาพ (QC) และรับประกัน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>ต้องการที่ปรึกษางานหลังคาโรงงาน?</h2>
+            <p>โทรหาเราเพื่อรับคำแนะนำเบื้องต้น หรือนัดหมายเข้าดูหน้างานได้ทันที</p>
+            <a href="tel:0982721979" class="btn-cta">
+                <i class="fa-solid fa-phone"></i> 098-272-1979
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top-row">
+                <div class="social-group">
+                    <h3>Get social</h3>
+                    <a href="#" class="s-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="s-icon"><i class="fa-brands fa-line"></i></a>
+                    <a href="#" class="s-icon"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+
+                <div class="biz-hours">
+                    <h4>Business Hours</h4>
+                    <p>Open Day : Monday - Saturday : 8.00 am. to 5.00 pm.</p>
+                </div>
+
+                <div class="phone-contact">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>(02)721-6521-9 098-2721979</span>
+                </div>
+            </div>
+
+            <div class="footer-links-grid">
+                <div class="f-col">
+                    <h4>เกี่ยวกับเรา</h4>
+                    <ul>
+                        <li><a href="#">วิสัยทัศน์/ พันธกิจ/ ค่านิยม</a></li>
+                        <li><a href="#">ข้อมูลทั่วไป</a></li>
+                    </ul>
+                    <h4 style="margin-top:20px;">ผลิตภัณฑ์/บริการ</h4>
+                    <ul>
+                        <li><a href="#">Metal Sheet Roof</a></li>
+                        <li><a href="#">PU Roof</a></li>
+                        <li><a href="#">Insulated Metal Panel</a></li>
+                        <li><a href="#">PURLIN</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-col">
+                    <h4>นักลงทุนสัมพันธ์</h4>
+                    <ul>
+                        <li><a href="#">ลักษณะการประกอบธุรกิจ</a></li>
+                        <li><a href="#">โครงสร้างกลุ่มธุรกิจ</a></li>
+                        <li><a href="#">สารจากประธานกรรมการ</a></li>
+                        <li><a href="#">ผังโครงสร้างองค์กร</a></li>
+                        <li><a href="#">คณะกรรมการบริษัท</a></li>
+                        <li><a href="#">มาตรฐาน และรางวัลคุณภาพ</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-col">
+                    <h4>ผลงานของเรา</h4>
+                    <ul><li><a href="#">ข่าวสารกิจกรรม</a></li></ul>
+                    <h4 style="margin-top:20px;">ติดต่อเรา</h4>
+                </div>
+
+                <div class="f-col f-company">
+                    <img src="https://munkongsteel.com/wp-content/uploads/2020/09/mks-logo-01-1.png" alt="MKS Logo">
+                    <p><strong>บริษัท มั่นคง สตีล จำกัด (มหาชน) ( MKS )</strong></p>
+                    <p>MUNKONG STEEL public limited companies (PLCs)</p>
+                    <p>BKK office : 1/348 Soi Onnuch 59/1, Sukhumvit 77 Rd.,Prawet, Bangkok 10250</p>
+                    <p>EMAIL US : contact@munkongsteel.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container fb-content">
+                <div class="fb-links">
+                    <a href="index.html">Home</a>
+                    <a href="page2-anti-rust-acoustic.html">Solutions</a>
+                    <a href="page4-service.html">Services</a>
+                    <a href="page6-awards.html">Awards</a>
+                </div>
+                <div class="fb-copy">
+                    COPY RIGHT 2025 @MUNKONG STEEL
+                    <img src="https://munkongsteel.com/wp-content/uploads/2020/09/mks-logo-01-1.png" alt="MKS Small Logo">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

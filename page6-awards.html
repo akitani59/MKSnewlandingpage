@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKS Metal Sheet - The International Architecture Awards 2025 | Munkong Steel</title>
+    <meta name="description" content="มั่นคงสตีลยินดีที่เป็นส่วนหนึ่งของความสำเร็จรางวัล The International Architecture Awards 2025 โดย ONG&ONG Thailand ด้วยนวัตกรรมหลังคา MKS มาตรฐานสากล">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --mks-blue: #213268;
+            --mks-header-bg: #213268;
+            --mks-red: #C01515;
+            --text-dark: #333;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --footer-bg: #F5F5F5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Sarabun', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            background-color: var(--mks-header-bg);
+            height: 85px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo img {
+            height: 55px;
+            background: #fff;
+            padding: 2px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .main-nav a {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 10px 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .main-nav a:hover { color: #ddd; }
+        .main-nav a.active { color: var(--mks-red); border-bottom: 2px solid var(--mks-red); }
+        .main-nav a i { font-size: 10px; margin-top: 2px;}
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-brochure {
+            background-color: var(--mks-red);
+            color: white !important;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 1.2;
+            display: inline-block;
+        }
+
+        .btn-brochure:hover { background-color: #a01212; }
+        .search-icon { color: white; font-size: 18px; cursor: pointer; }
+
+        .hero-wrapper {
+            position: relative;
+            background-image: url('https://static.wixstatic.com/media/b9ebc9_f05eceda0f9b4a01b5b810100288b842~mv2.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(33, 50, 104, 0.85);
+            z-index: 1;
+        }
+
+        .hero-content-inner {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            padding: 50px 0;
+            width: 100%;
+        }
+
+        .video-container {
+            flex: 0 0 400px;
+            height: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 4px solid rgba(255,255,255,0.2);
+            position: relative;
+            background: #000;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .text-container { flex: 1; padding-right: 20px; }
+        .ong-logo-wrapper { background: rgba(255,255,255,0.9); padding: 15px 25px; border-radius: 8px; display: inline-block; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .ong-logo-wrapper img { height: 40px; }
+        .hero-title { font-size: 2.5rem; line-height: 1.3; margin-bottom: 20px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.3); color: #fff; }
+        .hero-title .highlight { color: var(--mks-red); text-transform: uppercase; display: block; font-size: 1.8rem; margin-top: 10px; }
+        .hero-desc { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; font-weight: 300; max-width: 600px; }
+        .hero-btn { display: inline-block; background: var(--mks-red); color: white; padding: 15px 40px; border-radius: 5px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(192, 21, 21, 0.4); }
+        .hero-btn:hover { background: #a01212; transform: translateY(-3px); }
+
+        .vittoria-section { padding: 80px 0; background-color: #fff; }
+        .v-header { text-align: center; margin-bottom: 50px; }
+        .v-header h2 { font-size: 2.2rem; color: var(--mks-blue); margin-bottom: 10px; font-weight: 700; text-transform: uppercase; }
+        .v-header p { color: #555; font-size: 1.1rem; }
+
+        .v-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+        .v-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 400px;
+            position: relative;
+        }
+        .v-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .v-item:hover img { transform: scale(1.05); }
+
+        .showcase-section { padding: 60px 0; background: var(--bg-light); text-align: center; }
+        .showcase-logo img { height: 60px; margin: 0 auto 20px; }
+        .showcase-title { font-size: 1.5rem; color: var(--mks-blue); margin-bottom: 10px; font-weight: 700; }
+        .showcase-desc { color: #666; max-width: 800px; margin: 0 auto 40px; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .gallery-item img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; transition: 0.3s; }
+        .gallery-item:hover img { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        .edu-section { padding: 80px 0; background: #fff; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.5rem; color: var(--mks-blue); margin-bottom: 10px; }
+        .section-header p { color: #555; font-size: 1.1rem; }
+
+        .feature-row { display: flex; align-items: center; gap: 50px; margin-bottom: 60px; }
+        .feature-row:nth-child(even) { flex-direction: row-reverse; }
+        .feature-img { flex: 1; }
+        .feature-img img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .feature-text { flex: 1; }
+        .feature-text h3 { font-size: 1.8rem; color: var(--mks-blue); margin-bottom: 15px; }
+        .feature-text p { font-size: 1.1rem; color: #444; margin-bottom: 20px; }
+        .feature-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-weight: 500; }
+        .feature-list li i { color: #06C755; }
+
+        .standards-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .std-logo-item { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; width: 120px; height: 80px; }
+        .std-logo-item img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+        .compare-section { padding: 80px 0; background: var(--bg-light); }
+        .compare-table { width: 100%; border-collapse: collapse; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .compare-table th { background: var(--mks-blue); color: white; padding: 20px; font-size: 1.2rem; }
+        .compare-table td { padding: 20px; border-bottom: 1px solid #eee; text-align: center; font-size: 1.1rem; }
+        .compare-table tr:nth-child(even) { background: #f9f9f9; }
+
+        .factory-bg {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://static.wixstatic.com/media/b9ebc9_fc21da2298ec41aba66e6219a4759126~mv2.png') no-repeat center center/cover;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+            background-attachment: fixed;
+        }
+        .factory-content h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .factory-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
+
+        footer {
+            background-color: var(--footer-bg);
+            border-top: 5px solid var(--mks-red);
+            padding-top: 40px;
+            margin-top: 0;
+        }
+
+        .footer-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .social-group { display: flex; align-items: center; gap: 15px; }
+        .social-group h3 { color: var(--mks-header-bg); font-size: 1.6rem; margin-right: 10px; }
+        .s-icon {
+            width: 45px; height: 45px; background: var(--mks-header-bg); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+        }
+
+        .biz-hours { text-align: center; color: var(--mks-header-bg); }
+        .biz-hours h4 { font-size: 1.4rem; margin-bottom: 5px; }
+        .biz-hours p { color: #555; font-size: 0.95rem; }
+
+        .phone-contact { display: flex; align-items: center; gap: 15px; color: var(--mks-header-bg); font-size: 1.3rem; font-weight: 700; }
+        .phone-contact i { font-size: 2.5rem; }
+
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding-bottom: 50px;
+        }
+
+        .f-col h4 { color: var(--mks-header-bg); margin-bottom: 20px; font-size: 1.1rem; }
+        .f-col ul li { margin-bottom: 10px; font-size: 0.95rem; color: #444; position: relative; padding-left: 15px; }
+        .f-col ul li::before { content: "•"; color: var(--mks-header-bg); position: absolute; left: 0; font-weight: bold; }
+        .f-col ul li a:hover { color: var(--mks-red); }
+
+        .f-company img { width: 100px; border: 1px solid #ddd; padding: 5px; background: white; margin-bottom: 15px; }
+        .f-company p { font-size: 0.9rem; color: #555; margin-bottom: 10px; }
+
+        .footer-bottom {
+            background-color: var(--mks-header-bg);
+            color: white;
+            padding: 20px 0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        .fb-content { display: flex; justify-content: space-between; align-items: center; }
+        .fb-links a { margin-right: 20px; color: #ccc; }
+        .fb-links a:hover { color: white; }
+        .fb-copy img { height: 25px; vertical-align: middle; background: white; padding: 2px; margin-left: 10px; }
+
+        @media (max-width: 992px) {
+            .hero-content-inner { flex-direction: column-reverse; text-align: center; }
+            .text-container { padding-right: 0; }
+            .video-container { width: 100%; height: 400px; margin-bottom: 30px; flex: none; }
+            .gallery-grid, .v-grid { grid-template-columns: 1fr; }
+            .feature-row { flex-direction: column !important; text-align: center; }
+            .standards-group { justify-content: center; }
+
+            .header-inner { flex-wrap: wrap; }
+            .main-nav { display: none; }
+            .header-right { margin-left: auto; }
+        }
+
+        @media (max-width: 768px) {
+            .footer-top-row { flex-direction: column; text-align: center; }
+            .footer-links-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://munkongsteel.com/wp-content/uploads/2020/09/mks-logo-01-1.png" alt="MKS Logo">
+            </a>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="page2-anti-rust-acoustic.html">SOLUTIONS</a></li>
+                    <li><a href="page3-tools.html">TOOLS</a></li>
+                    <li><a href="page4-service.html">SERVICES</a></li>
+                    <li><a href="page5-engineering-guide.html">ENG. GUIDE</a></li>
+                    <li><a href="page6-awards.html" class="active">AWARDS</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <a href="#download" class="btn-brochure">
+                    (FREE) DOWNLOAD<br>BROCHURE
+                </a>
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero-wrapper">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content-inner">
+
+            <div class="text-container">
+                <div class="ong-logo-wrapper">
+                    <img src="https://static.wixstatic.com/media/b9ebc9_a4e5ec45ef6d449aa42c50066ef507ca~mv2.png" alt="ONG&ONG Logo">
+                </div>
+                <h1 class="hero-title">มั่นคงสตีลยินดีที่เป็นส่วนหนึ่ง<br>ของความสำเร็จรางวัล<br>
+                    <span class="highlight">THE INTERNATIONAL<br>ARCHITECTURE AWARDS 2025</span>
+                </h1>
+                <p class="hero-desc">โดย ONG&ONG Thailand ด้วยนวัตกรรมหลังคาและวัสดุคุณภาพสูงจาก MKS ที่ตอบโจทย์การออกแบบระดับโลก</p>
+                <a href="#consult" class="hero-btn">ปรึกษาวิศวกรฟรี</a>
+            </div>
+
+            <div class="video-container">
+                <video controls autoplay playsinline poster="https://static.wixstatic.com/media/b9ebc9_03cb7637c3ca460f9d8e631925e0f1a6~mv2.png">
+                    <source src="https://video.wixstatic.com/video/b9ebc9_b0998619dda34d5c9452ed0e26a8e7ea/1080p/mp4/file.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="vittoria-section">
+        <div class="container">
+            <div class="v-header">
+                <h2>Project Highlight: Vittoria Tyre Thailand</h2>
+                <p>ความงดงามของสถาปัตยกรรมโรงงาน ที่เลือกใช้หลังคาและวัสดุคุณภาพจาก MKS</p>
+            </div>
+
+            <div class="v-grid">
+                <div class="v-item">
+                    <img src="https://static.wixstatic.com/media/b9ebc9_9659b2e50ec944ecae673596f1c79313~mv2.jpeg" alt="Vittoria Tyre Project 1">
+                </div>
+                <div class="v-item">
+                    <img src="https://static.wixstatic.com/media/b9ebc9_84e275f250c5459c84b69fe8fc250e61~mv2.jpeg" alt="Vittoria Tyre Project 2">
+                </div>
+                <div class="v-item">
+                    <img src="https://static.wixstatic.com/media/b9ebc9_bf321229c7d445c88ed68c8e22b922de~mv2.jpeg" alt="Vittoria Tyre Project 3">
+                </div>
+                <div class="v-item">
+                    <img src="https://static.wixstatic.com/media/b9ebc9_b3d66501c59e4ba38c4b22812ee25e42~mv2.jpeg" alt="Vittoria Tyre Project 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="showcase-section">
+        <div class="container">
+            <h2 class="showcase-title">More Design Excellence</h2>
+            <p class="showcase-desc">ความไว้วางใจจากสถาปนิกชั้นนำระดับโลก เลือกใช้วัสดุหลังคาและผนัง MKS</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://static.wixstatic.com/media/b9ebc9_646063c8a7af4c37baa4a2912640d134~mv2.png" alt="Project 1"></div>
+                <div class="gallery-item"><img src="https://static.wixstatic.com/media/b9ebc9_c418bdc5cbee41898022f1880c21d88b~mv2.jpeg" alt="Project 2"></div>
+                <div class="gallery-item"><img src="https://static.wixstatic.com/media/b9ebc9_f05eceda0f9b4a01b5b810100288b842~mv2.jpeg" alt="Vittoria Tyre Main"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="edu-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>รู้ลึกเรื่องหลังคา เลือกให้คุ้มค่าที่สุด</h2>
+                <p>คำตอบสำหรับทุกข้อสงสัย เรื่องเมทัลชีทและฉนวนกันความร้อน</p>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-img">
+                    <img src="https://munkongsteel.com/wp-content/uploads/2020/12/MKS700BL.jpg" alt="Boltless System">
+                </div>
+                <div class="feature-text">
+                    <h3>ระบบ Boltless คืออะไร?</h3>
+                    <p>นวัตกรรมหลังคาที่ <strong>"ไม่ต้องเจาะสกรูทะลุแผ่น"</strong> ใช้ระบบขายึด (Connector) ล็อคแผ่นกับแปเหล็ก ทำให้มั่นใจเรื่องการรั่วซึมได้ 100% ตลอดอายุการใช้งาน</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check-circle"></i> หมดปัญหาน้ำรั่วจากรูเจาะสกรู</li>
+                        <li><i class="fa-solid fa-check-circle"></i> แผ่นขยายตัวอิสระ ไม่เกิดการฉีกขาด</li>
+                        <li><i class="fa-solid fa-check-circle"></i> ทนแรงลมได้สูงกว่าระบบทั่วไป (Wind Uplift)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-text">
+                    <h3>มาตรฐานโรงงานสากล มอก.1128 & ISO</h3>
+                    <p>เหล็ก MKS ผลิตเต็มความหนา (Full BMT) ตามมาตรฐานอุตสาหกรรมไทย และได้รับการรับรองมาตรฐานระดับโลกเพื่อความปลอดภัยสูงสุด</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-certificate"></i> ความหนาเหล็ก 0.35 - 0.50 mm เต็มสเปก</li>
+                        <li><i class="fa-solid fa-certificate"></i> ชั้นเคลือบสีทนทาน ไม่ซีดจางง่าย</li>
+                        <li><i class="fa-solid fa-certificate"></i> ควบคุมคุณภาพด้วย ISO 9001:2015</li>
+                    </ul>
+                </div>
+                <div class="feature-img">
+                    <div class="standards-group">
+                        <div class="std-logo-item">
+                            <img src="https://static.wixstatic.com/media/b9ebc9_7f6aafe70fbb4370bfc768458370f289~mv2.png" alt="TIS Logo">
+                        </div>
+                        <div class="std-logo-item">
+                            <img src="https://munkongsteel.com/wp-content/uploads/2020/11/certificated-logo_ISO.png" alt="ISO Logo">
+                        </div>
+                        <div class="std-logo-item">
+                            <img src="https://munkongsteel.com/wp-content/uploads/2020/11/certificated-logo_FM-Approved.png" alt="FM Approved Logo">
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 10px; color: #666; font-size: 0.9rem;">การรับรองคุณภาพมาตรฐานระดับสากล</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="compare-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>ฉนวนกันความร้อน PIR vs PU ต่างกันอย่างไร?</h2>
+                <p>เลือกฉนวนที่ปลอดภัยและกันร้อนได้จริงตามหลักวิศวกรรม</p>
+            </div>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>คุณสมบัติ (Properties)</th>
+                        <th>ฉนวน PIR (MKS Premium)</th>
+                        <th>ฉนวน PU (ทั่วไป)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>การกันไฟ (Fire Resistance)</strong></td>
+                        <td style="color:var(--mks-red); font-weight:700;">ไม่ลามไฟ (Self-Extinguish)<br><small>มาตรฐาน ASTM E84</small></td>
+                        <td>ติดไฟได้ (Flammable)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ค่ากันความร้อน (K-Value)</strong></td>
+                        <td>0.023 W/m.K (ดีเยี่ยม)</td>
+                        <td>0.023 W/m.K (ดี)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ควันเมื่อเผาไหม้</strong></td>
+                        <td>ควันน้อย (Low Smoke)</td>
+                        <td>ควันดำหนาแน่น</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ความแข็งแรง (Density)</strong></td>
+                        <td>40 kg/m³ (แข็งกว่า)</td>
+                        <td>35 kg/m³</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="factory-bg">
+        <div class="container factory-content">
+            <h2>วัสดุคุณภาพสูง สำหรับโรงงานอุตสาหกรรม</h2>
+            <p>MKS พร้อมสนับสนุนทุกโครงสร้าง ด้วยกำลังการผลิตที่รองรับโครงการขนาดใหญ่ และการจัดส่งที่รวดเร็ว</p>
+            <a href="#consult" class="hero-btn" style="background:white; color:var(--mks-blue);">ดูแคตตาล็อกสินค้า</a>
+        </div>
+    </section>
+
+    <div id="consult" style="background:#fff; padding:60px 0; text-align:center;">
+        <div class="container">
+            <h2 style="color:var(--mks-blue); margin-bottom:20px;">พร้อมเริ่มต้นโครงการของคุณหรือยัง?</h2>
+            <p style="margin-bottom:30px;">ปรึกษาวิศวกร MKS ฟรี! พร้อมคำนวณราคาเบื้องต้น</p>
+            <a href="tel:0982721979" class="hero-btn"><i class="fa-solid fa-phone"></i> โทร 098-272-1979</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top-row">
+                <div class="social-group">
+                    <h3>Get social</h3>
+                    <a href="#" class="s-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="s-icon"><i class="fa-brands fa-line"></i></a>
+                    <a href="#" class="s-icon"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+
+                <div class="biz-hours">
+                    <h4>Business Hours</h4>
+                    <p>Open Day : Monday - Saturday : 8.00 am. to 5.00 pm.</p>
+                </div>
+
+                <div class="phone-contact">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>(02)721-6521-9 098-2721979</span>
+                </div>
+            </div>
+
+            <div class="footer-links-grid">
+                <div class="f-col">
+                    <h4>เกี่ยวกับเรา</h4>
+                    <ul>
+                        <li><a href="#">วิสัยทัศน์/ พันธกิจ/ ค่านิยม</a></li>
+                        <li><a href="#">ข้อมูลทั่วไป</a></li>
+                    </ul>
+                    <h4 style="margin-top:20px;">ผลิตภัณฑ์/บริการ</h4>
+                    <ul>
+                        <li><a href="#">Metal Sheet Roof</a></li>
+                        <li><a href="#">PU Roof</a></li>
+                        <li><a href="#">Insulated Metal Panel</a></li>
+                        <li><a href="#">PURLIN</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-col">
+                    <h4>นักลงทุนสัมพันธ์</h4>
+                    <ul>
+                        <li><a href="#">ลักษณะการประกอบธุรกิจ</a></li>
+                        <li><a href="#">โครงสร้างกลุ่มธุรกิจ</a></li>
+                        <li><a href="#">สารจากประธานกรรมการ</a></li>
+                        <li><a href="#">ผังโครงสร้างองค์กร</a></li>
+                        <li><a href="#">คณะกรรมการบริษัท</a></li>
+                        <li><a href="#">มาตรฐาน และรางวัลคุณภาพ</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-col">
+                    <h4>ผลงานของเรา</h4>
+                    <ul><li><a href="#">ข่าวสารกิจกรรม</a></li></ul>
+                    <h4 style="margin-top:20px;">ติดต่อเรา</h4>
+                </div>
+
+                <div class="f-col f-company">
+                    <img src="https://munkongsteel.com/wp-content/uploads/2020/09/mks-logo-01-1.png" alt="MKS Logo">
+                    <p><strong>บริษัท มั่นคง สตีล จำกัด (มหาชน) ( MKS )</strong></p>
+                    <p>MUNKONG STEEL public limited companies (PLCs)</p>
+                    <p>BKK office : 1/348 Soi Onnuch 59/1, Sukhumvit 77 Rd.,Prawet, Bangkok 10250</p>
+                    <p>EMAIL US : contact@munkongsteel.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container fb-content">
+                <div class="fb-links">
+                    <a href="index.html">Home</a>
+                    <a href="page2-anti-rust-acoustic.html">Solutions</a>
+                    <a href="page4-service.html">Services</a>
+                    <a href="page6-awards.html">Awards</a>
+                </div>
+                <div class="fb-copy">
+                    COPY RIGHT 2025 @MUNKONG STEEL
+                    <img src="https://munkongsteel.com/wp-content/uploads/2020/09/mks-logo-01-1.png" alt="MKS Small Logo">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
