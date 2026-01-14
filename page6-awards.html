@@ -659,22 +659,90 @@
 
         @media (max-width: 992px) {
             .hero-content h1 { font-size: 2.2rem; }
+            .hero-content h1 span { font-size: 1.4rem; }
             .project-grid { grid-template-columns: repeat(2, 1fr); }
             .gallery-grid { grid-template-columns: 1fr 1fr; }
             .standards-content { flex-direction: column; text-align: center; }
             .header-inner { flex-wrap: wrap; }
             .main-nav { display: none; }
             .header-right { margin-left: auto; }
+            .architect-content { flex-direction: column; }
+            .architect-logo-box { flex: none; width: 100%; max-width: 300px; margin: 0 auto; }
+            .project-specs { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
-            .hero-portfolio { min-height: 500px; }
-            .hero-content h1 { font-size: 1.8rem; }
-            .project-main-img { height: 350px; }
-            .project-grid { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: 1fr; }
+            .hero-portfolio { min-height: auto; padding: 60px 0; }
+            .hero-content { text-align: center; }
+            .hero-content h1 { font-size: 1.6rem; }
+            .hero-content h1 span { font-size: 1.2rem; }
+            .hero-content p { font-size: 1rem; }
+
+            /* Award Section Mobile */
+            .award-trophy { font-size: 2.5rem; }
+            .award-title-box { padding: 15px 20px; }
+            .award-title { font-size: 1.2rem; letter-spacing: 1px; }
+            .award-year { font-size: 2rem; }
+            .award-label { font-size: 0.7rem; letter-spacing: 2px; }
+
+            /* Architect Section Mobile */
+            .architect-section { padding: 50px 0; }
+            .architect-info h2 { font-size: 1.6rem; text-align: center; }
+            .architect-info h2 span { font-size: 1rem; }
+            .architect-info p { font-size: 0.95rem; text-align: center; }
+            .project-specs { grid-template-columns: 1fr; gap: 12px; padding: 20px; }
+
+            /* Project Section Mobile */
+            .project-section { padding: 50px 0; }
+            .section-header h2 { font-size: 1.8rem; }
+            .section-header p { font-size: 1rem; }
+            .project-main-img { height: 280px; }
+            .project-info-overlay h3 { font-size: 1.3rem; }
+            .project-grid { grid-template-columns: 1fr; gap: 15px; }
+            .project-item { height: 200px; }
+
+            /* Gallery Mobile */
+            .gallery-section { padding: 50px 0; }
+            .gallery-grid { grid-template-columns: 1fr; gap: 15px; }
+            .gallery-item { height: 250px; }
+
+            /* Standards Mobile */
+            .standards-section { padding: 50px 0; }
+            .standards-text h2 { font-size: 1.5rem; }
+            .cert-list li { font-size: 0.95rem; justify-content: center; }
+            .std-logo-box { width: 100px; height: 70px; padding: 10px; }
+
+            /* CTA Mobile */
+            .cta-soft { padding: 50px 20px; }
+            .cta-soft h2 { font-size: 1.5rem; }
+            .cta-soft p { font-size: 1rem; }
+            .btn-cta { padding: 12px 20px; font-size: 0.9rem; width: 100%; justify-content: center; }
+
+            /* Footer Mobile */
             .footer-top-row { flex-direction: column; text-align: center; }
-            .footer-links-grid { grid-template-columns: 1fr; }
+            .footer-links-grid { grid-template-columns: 1fr; text-align: center; }
+            .social-group { flex-wrap: wrap; justify-content: center; }
+            .social-group h3 { width: 100%; margin-bottom: 10px; }
+
+            /* Header Mobile */
+            .header-right { gap: 8px; }
+            .btn-line, .btn-brochure { font-size: 10px; padding: 6px 10px; }
+            .btn-brochure br { display: none; }
+            .logo img { height: 45px; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 15px; }
+            .hero-content h1 { font-size: 1.4rem; }
+            .award-trophy { font-size: 2rem; }
+            .award-title-box { padding: 12px 15px; }
+            .award-title { font-size: 1rem; }
+            .award-year { font-size: 1.6rem; }
+            .project-main-img { height: 220px; }
+            .project-item { height: 180px; }
+            .gallery-item { height: 200px; }
+            .architect-info h2 { font-size: 1.4rem; }
+            .section-header h2 { font-size: 1.5rem; }
         }
     </style>
 </head>

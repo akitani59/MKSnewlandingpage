@@ -312,10 +312,38 @@
         }
         @media (max-width: 768px) {
             .footer-top-row { flex-direction: column; text-align: center; }
-            .footer-links-grid { grid-template-columns: 1fr; }
+            .footer-links-grid { grid-template-columns: 1fr; text-align: center; }
             .images-col { flex-direction: column; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1.1rem; }
+            .hero { padding: 60px 0; }
+            .hero h1 { font-size: 1.6rem; line-height: 1.4; }
+            .hero p { font-size: 1rem; }
+            .hero-badges { flex-wrap: wrap; justify-content: center; gap: 8px; }
+            .badge { font-size: 0.75rem; padding: 5px 10px; }
+            .section { padding: 50px 0; }
+            .section-title h2 { font-size: 1.6rem; }
+            .section-title p { font-size: 0.95rem; }
+            .tech-table { font-size: 0.85rem; }
+            .tech-table th, .tech-table td { padding: 10px 8px; }
+            .table-header { font-size: 1rem; padding: 12px; flex-direction: column; gap: 8px; }
+            .std-badge { position: static; }
+            .close-sale-section { padding: 50px 20px; }
+            .close-sale-content h2 { font-size: 1.4rem; }
+            .close-sale-content h3 { font-size: 1rem; }
+            .close-sale-buttons { flex-direction: column; }
+            .btn-consult { width: 100%; justify-content: center; }
+            .header-right { gap: 8px; }
+            .btn-brochure { font-size: 10px; padding: 6px 10px; }
+            .logo img { height: 45px; }
+            .social-group { flex-wrap: wrap; justify-content: center; }
+            .social-group h3 { width: 100%; margin-bottom: 10px; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 15px; }
+            .hero h1 { font-size: 1.4rem; }
+            .section-title h2 { font-size: 1.4rem; }
+            .tech-table { font-size: 0.8rem; }
+            .tech-table th, .tech-table td { padding: 8px 5px; }
+            .close-sale-content h2 { font-size: 1.2rem; }
         }
     </style>
 </head>

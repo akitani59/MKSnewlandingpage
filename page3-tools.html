@@ -330,8 +330,39 @@
         }
         @media (max-width: 768px) {
             .footer-top-row { flex-direction: column; text-align: center; }
-            .footer-links-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2rem; }
+            .footer-links-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero { padding: 60px 0; }
+            .hero h1 { font-size: 1.6rem; line-height: 1.4; }
+            .hero p { font-size: 1rem; }
+            .hero-badges { flex-wrap: wrap; justify-content: center; gap: 8px; }
+            .badge { font-size: 0.75rem; padding: 5px 10px; }
+            .section { padding: 50px 0; }
+            .section-title h2 { font-size: 1.5rem; }
+            .tools-grid { grid-template-columns: 1fr; gap: 25px; }
+            .tool-card { padding: 25px 20px; }
+            .tool-header h3 { font-size: 1.3rem; }
+            .form-group label { font-size: 0.9rem; }
+            .form-group select, .form-group input { font-size: 1rem; }
+            .btn-calculate { font-size: 1rem; padding: 12px 20px; }
+            .result-box { padding: 20px; }
+            .result-item { flex-direction: column; gap: 5px; }
+            .close-sale-section { padding: 50px 20px; }
+            .close-sale-content h2 { font-size: 1.4rem; }
+            .close-sale-content h3 { font-size: 1rem; }
+            .close-sale-buttons { flex-direction: column; }
+            .btn-consult { width: 100%; justify-content: center; }
+            .header-right { gap: 8px; }
+            .btn-brochure { font-size: 10px; padding: 6px 10px; }
+            .logo img { height: 45px; }
+            .social-group { flex-wrap: wrap; justify-content: center; }
+            .social-group h3 { width: 100%; margin-bottom: 10px; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 15px; }
+            .hero h1 { font-size: 1.4rem; }
+            .section-title h2 { font-size: 1.3rem; }
+            .tool-header h3 { font-size: 1.1rem; }
+            .close-sale-content h2 { font-size: 1.2rem; }
         }
     </style>
 </head>
